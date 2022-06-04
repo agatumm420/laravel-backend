@@ -1,0 +1,28 @@
+Linux install
+
+	Installing with `pecl` command-line utility
+
+		1. Execute command "pecl install sqlite3"
+		2. Make sure you have extension=sqlite3.so in your php.ini
+
+
+	Installing from sources
+
+		1. Unpack sqlite3 source package
+		2. Go to the sqlite3 directory and type "phpize && ./configure && make && make install"
+		3. Make sure you have extension=sqlite3.so in your php.ini
+
+
+	Compiling SQLite3 into PHP
+
+		1. Unpack sqlite source package to $PHP_SOURCE_DIR/ext/sqlite3
+		2. In php source root directory run the following commands: "rm configure && ./buildconf --force"
+		3. Configure PHP with command "./configure --with-sqlite3"
+		4. Run make && make install
+
+
+Windows install
+
+	1. Download the SQLite3 package from http://pecl4win.php.net/
+	2. Place php_sqlite3.dll in your PHP extension directory
+	3. Make sure you have extension=php_sqlite3.dll in your php.ini

@@ -1,0 +1,59 @@
+x 2008, PHP SQLite3 v0.6
+- Upgraded bundled SQLite to 3.5.8
+
+11 April 2008, PHP SQLite3 v0.5
+- Upgraded bundled SQLite to 3.5.7
+- Added
+  . SQLite3::lastErrorCode and SQLite3::lastErrorMsg in order to fetch error information
+  . SQLite3_result::columnType to get type of a column in a result set
+  . Flags to SQLite3::open to allow databases to be opened read only.
+    This is PHP 5.3 only due to the shared library bundled in pdo_sqlite3 causing problems.
+  . SQLITE3_OPEN_READONLY, SQLITE3_OPEN_READWRITE, SQLITE3_OPEN_CREATE constants
+- Fixed incorrect column count being returned on a non executed statement
+- Fixed lack of library when using the shared sqlite3
+
+29 Feb 2008, PHP SQLite3 v0.4
+- Upgraded bundled SQLite to 3.5.6
+- Added
+  . Fulltext Search v3 extension to the bundled SQLite
+- Fixed segfault when executed a query failed
+- Fixed building with thread safety enabled
+- Fixed overflow with 64bit numbers
+
+31 Jan 2008, PHP SQLite3 v0.3
+- Upgraded bundled SQLite to 3.5.4
+- Added
+  . SQLITE3_NUM, SQLITE3_NUM and SQLITE3_BOTH constants for fetch_array
+  . SQLITE3_INTEGER, SQLITE3_FLOAT, SQLITE3_TEXT, SQLITE3_BLOB, SQLITE3_NULL constants for parameter binding
+  . Added columnName method
+  . Added encryption support if the library supports it
+  . Added stream support for blob datatype
+- Changed
+  . numColumn to numColumns for consistency
+  . Cast values to prepared statements prior to execution
+- Removed
+  . Unused case from SQLite authorizer
+  . sqlite3.enable_extensions INI option in favour of sqlite3.extension_dir
+- Performance
+  . Check if a return value is used before allocating zvals
+  . Fix memory leaks in non prepared statements
+- Building
+  . Check for SQLite 3.3.9+ in external versions
+  . Build debug version of libsqlite when using debug build of PHP
+- Added unit tests
+- Fixed PHP 5.3 support
+
+8 Nov 2007, PHP SQLite3 v0.2
+- Added User Defined Function Support
+- Added Aggregate Function Support
+- Added config.w32
+- Fix build against PHP 6
+
+6 Nov 2007, PHP SQLite3 v0.1
+- Initial release
+  . Bundled SQLite 3.5.2
+  . SQLite memory databases
+  . PHP safemode and open_basedir support
+  . SQLite shared extension support
+  . Basic prepared statement and binding support
+  . Basic fetch array support

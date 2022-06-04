@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.big-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+
+}
+
+.login-box {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,29 @@
+// $Id: $
+// vim:ft=javascript
+
+ARG_WITH("sqlite3", "SQLite 3 support", "no");
+
+if (PHP_SQLITE3 != "no") {
+	ADD_FLAG("CFLAGS_SQLITE3", "/D SQLITE_THREADSAFE=1 /D SQLITE_ENABLE_FTS3=1 /D SQLITE_CORE=1 ");
+	EXTENSION("sqlite3", "sqlite3.c", null, "/I" + configure_module_dirname + "/libsqlite /I" + configure_module_dirname);
+	ADD_SOURCES(configure_module_dirname + "/libsqlite",
+		"attach.c auth.c bitvec.c btmutex.c btree.c \
+        build.c callback.c date.c delete.c expr.c \
+        fault.c func.c fts3.c fts3_hash.c fts3_icu.c fts3_porter.c fts3_tokenizer.c \
+		fts3_tokenizer1.c hash.c insert.c journal.c legacy.c \
+        main.c malloc.c mutex.c mutex_unix.c mutex_w32.c mem1.c \
+        os_unix.c os_win.c os.c \
+        pager.c pragma.c prepare.c \
+        printf.c random.c select.c \
+        table.c tokenize.c analyze.c complete.c \
+        trigger.c update.c utf.c util.c \
+        vacuum.c vdbeapi.c vdbeaux.c vdbe.c vdbeblob.c \
+        vdbemem.c where.c parse.c opcodes.c \
+        alter.c vdbefifo.c vtab.c loadext.c", "sqlite3");
+
+	AC_DEFINE("HAVE_SQLITE3", 1, "SQLite support");
+
+	if (!PHP_SQLITE3_SHARED) {
+		ADD_DEF_FILE(configure_module_dirname + "\\php_sqlite3.def");
+	}
+}

@@ -1,0 +1,4 @@
+PHP SQLite3 TODO list
+- More Tests
+- Implement old functional style SQLite wrapper
+- Buffered Queries
